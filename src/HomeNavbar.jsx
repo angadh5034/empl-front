@@ -22,7 +22,7 @@ export default function HomeNavbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse">
+          <div className="collapse navbar-collapse collapse show" id="navbarSupportedContent">
 
             <ul className="navbar-nav me-auto">
 
