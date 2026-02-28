@@ -10,6 +10,7 @@ export default function Navbar() {
     localStorage.removeItem("userinfo");
     localStorage.removeItem("isLoggedIn");
     navigate("/");
+    window.location.reload();
   }
 
   return (
