@@ -16,6 +16,7 @@ import LeaveForm from './LeaveForm';
 import UpdateLeaveStatus from './UpdateLeaveStatus';
 import MyLeave from './MyLeave';
 import HomeNavbar from './HomeNavbar';
+import React, { useState, useEffect } from "react";
 
 function App() {
 
