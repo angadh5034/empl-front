@@ -37,27 +37,30 @@ export default App;
 
 function AppContent()
 {
+const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
 
-  let user = JSON.parse(localStorage.getItem("userinfo"));
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("userinfo"));
+    const loggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
 
-  // ✅ FIXED LINE (string key used)
-  let isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+    if (loggedIn === true && storedUser) {
+      setIsLoggedIn(true);
+      setUser(storedUser);
+    }
+  }, []);
 
   
 
   return(
     <div>
       {/* ✅ Navbar logic */}
-      {
-        isLoggedIn === true
-        ?
-          (
-            user && user.role === "Admin"
+     {
+        isLoggedIn
+          ? (user?.role === "Admin"
               ? <Navbar />
-              : <EmpNav />
-          )
-        :
-          <HomeNavbar />
+              : <EmpNav />)
+          : <HomeNavbar />
       }
       {/* {
         isLoggedIn === true && location.pathname !== "/" &&

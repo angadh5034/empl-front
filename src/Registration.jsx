@@ -105,24 +105,20 @@ const app=process.env.REACT_APP_SERVER_IP;
         {
             alert("login succseful...")
             let user=res.data;
-            console.log(res.data);
-            localStorage.setItem("isLoggedIn","true");
-            localStorage.setItem("userinfo",JSON.stringify(user));
+           localStorage.setItem("isLoggedIn", JSON.stringify(true));
+        localStorage.setItem("userinfo", JSON.stringify(user));
 
-
-
-
-      if(user.role === "Admin")
-      {
-        navigate("/Navbar");
-      }
-      else if(user.role === "Employee")
-      {
-        navigate("/EmpNav");
-      }
+        if (user.role === "Admin") {
+          navigate("/ViewEmployee");
+        } 
+        else if (user.role === "Employee") {
+          navigate("/dashboard");
         }
 
-      })
+        window.location.reload();   // 🔥 important
+      }
+
+    })
 
       .catch(() => {
 
