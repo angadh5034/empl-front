@@ -10,7 +10,7 @@ export default function HomeNavbar() {
 
           {/* Logo */}
           <Link className="navbar-brand fw-bold fs-4 text-warning" to="#">
-            EMV
+            EMS
           </Link>
 
           <button

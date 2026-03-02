@@ -138,7 +138,7 @@ let addemp=(e) => {
         <div className="card-body">
           <h4 className="text-center mb-4">Add Employee</h4>
 
-          <form onSubmit={(e) => addemp(e)}>
+          <form onSubmit={addemp}>
 
             {/* Personal Details */}
             <h5 className="mb-3">Personal Details</h5>
@@ -289,7 +289,7 @@ let addemp=(e) => {
                 </div>
             </div>
             <div className="text-center mt-3">
-              <button type="submit" onClick={(e) => addemp(e)} className="btn btn-primary px-4">
+              <button type="submit" className="btn btn-primary px-4">
                 Save Employee
               </button>
             </div>
