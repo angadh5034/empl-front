@@ -24,7 +24,7 @@ const [reportingmaneger, setReportingmaneger] = useState("");
 const [department, setDepartment] = useState("");
 const[error, setError] = useState({});
 
-const app = "https://emp-back-3.onrender.com";
+const app=process.env.REACT_APP_SERVER_IP;
 
 
 const validatation = () => {
@@ -113,22 +113,20 @@ let addemp=(e) => {
     e.preventDefault();
 
      if (!validatation()) {
-    return;
+      alert("Please fix the validation errors before submitting.");
+      return;
+
      // stop if validation fails
   }
     let employee = {firstname, middelname, lastname, gender, email, dob, contactno, adharno, panno, address, profile, exp, salary, joiningdate, designation, worklocatin, status, reportingmaneger, department}
     console.log(employee);
-    axios.post(`${app}/Employee/addemp`,employee)
-
-    .then((response) => {
+    axios.post(`${app}/Employee/addemp`,employee).then((response) => {
         if(response.data === "Employee added successfully"){
 
         alert(response.data);
         alert("Employee Added Successfully");
         }
-    })
-
-    .catch((error) => {
+    }).catch((error) => {
         alert("Error adding employee. Please try again.");
     })
 }
@@ -181,7 +179,7 @@ let addemp=(e) => {
               <div className="col-md-4 mb-3">
                 <label className="form-label">Date of Birth</label>
                 <input type="date" className="form-control" onChange={(e) => setDob(e.target.value)} name="dob" />
-                <small className="text-muted">Format: YYYY-MM-DD</small>
+                <small className="text-muted">Format: DD-MM-YYYY</small>
               </div>
             </div>
 
@@ -226,7 +224,7 @@ let addemp=(e) => {
               <div className="col-md-4 mb-3">
                 <label className="form-label">Joining Date</label>
                 <input type="date" className="form-control" onChange={(e) => setJoiningdate(e.target.value)} name="joiningdate" />
-                <small className="text-muted">Format: YYYY-MM-DD</small>
+                <small className="text-muted">Format: DD-MM-YYYY</small>
               </div>
             </div>
 
